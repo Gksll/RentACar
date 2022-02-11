@@ -3,7 +3,7 @@ using Entities.Concrete;
 
 namespace Business.Abstract
 {
-    public interface IRentalService:IMethodService<Rental>
+    public interface IUserService:IMethodService<User>
     {
        
     }

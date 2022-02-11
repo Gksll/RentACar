@@ -1,13 +1,10 @@
-﻿using Entities.Concrete;
+﻿using Core.Utilities.Results;
+using Entities.Concrete;
 
 namespace Business.Abstract
 {
-    public interface IColorService
+    public interface IColorService:IMethodService<Color>
     {
-        void Add(Color color);
-        void Delete(Color color);
-        void Update(Color color);
-        List<Color> GetAll();
-        Color GetById(int colorId);
+       
     }
 }

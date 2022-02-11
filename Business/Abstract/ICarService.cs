@@ -1,13 +1,10 @@
-﻿using Entities.Concrete;
+﻿using Core.Utilities.Results;
+using Entities.Concrete;
 
 namespace Business.Abstract
 {
-    public interface ICarService
+    public interface ICarService:IMethodService<Car>
     {
-        void Add(Car car);
-        void Delete(Car car);
-        void Update(Car car);
-        List<Car> GetAll();
-        Car GetById(int carId);
+       
     }
 }

@@ -1,13 +1,14 @@
-﻿using Entities.Concrete;
+﻿using Core.Utilities.Results;
+using Entities.Concrete;
+using Microsoft.AspNetCore.Http;
 
 namespace Business.Abstract
 {
-    public interface ICarImageService
+    public interface ICarImageService:IMethodService<CarImage>
     {
-        void Add(CarImage carImage);
-        void Delete(CarImage carImage);
-        void Update(CarImage carImage);
-        List<CarImage> GetAll();
-        CarImage GetById(int carImageId);
+        IResult Add(IFormFile file, CarImage carImage);
+        IResult Update(IFormFile file, CarImage carImage);
+        IDataResult<List<CarImage>> ListImages(int CarId);
+
     }
 }
