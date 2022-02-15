@@ -1,5 +1,6 @@
 ﻿using Business.Abstract;
 using Business.Constants;
+using Core.Entities.Concrete;
 using Core.Utilities.Results;
 using DataAccessLayer.Abstract;
 using Entities.Concrete;
@@ -36,6 +37,16 @@ namespace Business.Concrete
             return new SuccessDataResult<User>(_userDal.Get(u=>u.Id==userId),Messages.Get);
         }
 
+        public IDataResult<User> GetByMail(string email)
+        {
+            return new SuccessDataResult<User>(_userDal.Get(u=>u.Email==email));
+        }
+
+        public IDataResult<List<OperationClaim>> GetClaims(User user)
+        {
+            return new SuccessDataResult<List<OperationClaim>>(_userDal.GetClaims(user));
+        }
+
         public IResult Update(User user)
         {
             User u = GetById(user.Id).Data;
@@ -43,7 +54,7 @@ namespace Business.Concrete
             u.Email = user.Email;
             u.LastName = user.LastName;
             u.FirstName = user.FirstName;
-            u.Passaword = user.Passaword;
+          //  u.Passaword = user.Passaword;
             _userDal.Update(u);
             return new SuccessResult(Messages.Updated);
         }

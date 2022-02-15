@@ -3,7 +3,9 @@ using Autofac.Extras.DynamicProxy;
 using Business.Abstract;
 using Business.Concrete;
 using Castle.DynamicProxy;
+using Core.Utilities.Helpers;
 using Core.Utilities.InterCeptors;
+using Core.Utilities.Security.Jwt;
 using DataAccessLayer.Abstract;
 using DataAccessLayer.Concrete;
 using System;
@@ -14,7 +16,7 @@ using System.Threading.Tasks;
 
 namespace Business.DependencyResolvers
 {
-    public class AutofacBusinessModule:Module
+    public class AutofacBusinessModule : Module
     {
         protected override void Load(ContainerBuilder builder)
         {
@@ -39,16 +41,16 @@ namespace Business.DependencyResolvers
             builder.RegisterType<CarImageManager>().As<ICarImageService>().SingleInstance();
             builder.RegisterType<EfCarImageDal>().As<ICarImageDal>().SingleInstance();
 
+            builder.RegisterType<FileHelperManager>().As<IFileHelper>().SingleInstance();
+
+            builder.RegisterType<AuthManager>().As<IAuthService>();
+
+            builder.RegisterType<JwtHelper>().As<ITokenHelper>();
             //builder.RegisterType<CardManager>().As<ICardService>().SingleInstance();
             //builder.RegisterType<EfCardDal>().As<ICardDal>().SingleInstance();
 
             //builder.RegisterType<PaymentManager>().As<IPaymentService>().SingleInstance();
             //builder.RegisterType<EfPaymentDal>().As<IPaymentDal>().SingleInstance();
-
-            //builder.RegisterType<FileHeplerManager>().As<IFileHelper>().SingleInstance();
-
-            //builder.RegisterType<AuthManager>().As<IAuthService>();
-            //builder.RegisterType<JwtHelper>().As<ITokenHelper>();
 
             var assembly = System.Reflection.Assembly.GetExecutingAssembly();
 
