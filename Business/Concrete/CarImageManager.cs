@@ -41,6 +41,11 @@ namespace Business.Concrete
             throw new NotImplementedException();
         }
 
+        public IResult AddTransactionalTest(CarImage entity)
+        {
+            throw new NotImplementedException();
+        }
+
         public IResult Delete(CarImage carImage)
         {
             _carImageDal.Delete(GetById(carImage.Id).Data);

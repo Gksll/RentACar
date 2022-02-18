@@ -14,5 +14,6 @@ namespace Business.Abstract
         IResult Update(T entity);
         IDataResult<List<T>> GetAll();
         IDataResult<T> GetById(int entityId);
+        IResult AddTransactionalTest(T entity);
     }
 }

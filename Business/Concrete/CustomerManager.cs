@@ -20,6 +20,11 @@ namespace Business.Concrete
             return new SuccessResult(Messages.Added);
         }
 
+        public IResult AddTransactionalTest(Customer entity)
+        {
+            throw new NotImplementedException();
+        }
+
         public IResult Delete(Customer customer)
         {
             _customerDal.Delete(GetById(customer.CustomerId).Data);

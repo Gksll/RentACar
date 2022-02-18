@@ -21,6 +21,11 @@ namespace Business.Concrete
             return new SuccessResult(Messages.Added);
         }
 
+        public IResult AddTransactionalTest(Color entity)
+        {
+            throw new NotImplementedException();
+        }
+
         public IResult Delete(Color color)
         {
             _colorDal.Delete(GetById(color.ColorId).Data);

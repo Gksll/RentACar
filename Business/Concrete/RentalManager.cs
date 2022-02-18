@@ -19,6 +19,11 @@ namespace Business.Concrete
             return new SuccessResult(Messages.Added);
         }
 
+        public IResult AddTransactionalTest(Rental entity)
+        {
+            throw new NotImplementedException();
+        }
+
         public IResult Delete(Rental rental)
         {
             _rentalDal.Delete(GetById(rental.Id).Data);
