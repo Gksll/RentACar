@@ -8,6 +8,7 @@ using Core.Aspects.Validation;
 using Core.Utilities.Results;
 using DataAccessLayer.Abstract;
 using Entities.Concrete;
+using Entities.DTOs;
 
 namespace Business.Concrete
 {
@@ -47,6 +48,12 @@ namespace Business.Concrete
         {
             return new SuccessDataResult<Car>(_CarDal.Get(c => c.CarId == carId),Messages.Get);
         }
+
+        public IDataResult<List<CarsDto>> GetCarDto()
+        {
+            return new SuccessDataResult<List<CarsDto>>(_CarDal.GetCars());
+        }
+
         [CacheRemoveAspect("ICarService.Get")]
         public IResult Update(Car car)
         {

@@ -59,7 +59,6 @@ namespace Business.Concrete
             u.Email = user.Email;
             u.LastName = user.LastName;
             u.FirstName = user.FirstName;
-          //  u.Passaword = user.Passaword;
             _userDal.Update(u);
             return new SuccessResult(Messages.Updated);
         }
